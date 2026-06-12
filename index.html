@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Erica ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:radial-gradient(circle at top,#4b0082,#17002e,#000);
+}
+
+#fondo{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+}
+
+.container{
+    width:92%;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    padding:45px 20px;
+    position:relative;
+    z-index:10;
+}
+
+h1{
+    font-size:52px;
+    margin-bottom:15px;
+    color:#fff;
+    text-shadow:0 0 15px #ff69b4,0 0 35px #ff1493;
+    animation:latido 1.6s infinite;
+}
+
+@keyframes latido{
+    50%{transform:scale(1.05);}
+}
+
+.foto-corazon{
+    width:260px;
+    height:260px;
+    margin:25px auto;
+    overflow:hidden;
+    clip-path:path("M130 235 C20 150 0 60 65 25 C100 5 130 35 130 70 C130 35 160 5 195 25 C260 60 240 150 130 235 Z");
+    box-shadow:0 0 25px #ff4fa3,0 0 65px #ff4fa3;
+    animation:latido 1.8s infinite;
+}
+
+.foto-corazon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card{
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.30);
+    backdrop-filter:blur(13px);
+    border-radius:28px;
+    padding:30px;
+    margin-top:28px;
+    box-shadow:0 0 30px rgba(255,105,180,.45);
+}
+
+.card h2{
+    color:#ffd3eb;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:1.8;
+    font-size:19px;
+    text-align:justify;
+}
+
+.pregunta{
+    margin-top:35px;
+    font-size:36px;
+    color:#ffe6f5;
+    text-shadow:0 0 20px #ff4fa3;
+}
+
+.botones{
+    position:relative;
+    margin-top:30px;
+    height:150px;
+}
+
+button{
+    border:none;
+    padding:15px 35px;
+    border-radius:35px;
+    font-size:22px;
+    cursor:pointer;
+    color:white;
+    transition:.3s;
+}
+
+#si{
+    background:#ff2f92;
+    box-shadow:0 0 25px #ff2f92;
+}
+
+#si:hover{
+    transform:scale(1.12);
+}
+
+#no{
+    background:#555;
+    position:absolute;
+    margin-left:22px;
+}
+
+.btn-musica{
+    background:#7b2cff;
+    box-shadow:0 0 25px #9b6bff;
+    margin-bottom:15px;
+    font-size:18px;
+    padding:12px 28px;
+}
+
+.mensaje{
+    margin-top:25px;
+    font-size:30px;
+    color:#ffd1ec;
+    font-weight:bold;
+    text-shadow:0 0 15px #ff69b4;
+}
+
+.flotante{
+    position:fixed;
+    top:-50px;
+    pointer-events:none;
+    z-index:1;
+    animation:caer linear forwards;
+}
+
+@keyframes caer{
+    to{
+        transform:translateY(120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+#pantallaSi{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.90);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+#pantallaSi h2{
+    font-size:70px;
+    color:#ff8ad4;
+    text-shadow:0 0 30px #ff4fa3;
+    animation:latido 1s infinite;
+}
+
+#pantallaSi p{
+    font-size:30px;
+    margin-top:20px;
+    color:white;
+}
+
+@media(max-width:700px){
+    h1{font-size:35px;}
+    .foto-corazon{
+        width:210px;
+        height:210px;
+    }
+    .card p{font-size:16px;}
+    .card h2{font-size:25px;}
+    .pregunta{font-size:26px;}
+    #pantallaSi h2{font-size:45px;}
+    #pantallaSi p{font-size:22px;}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="fondo"></canvas>
+
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+    <h1>Para Erica ❤️🌹</h1>
+
+    <button class="btn-musica" onclick="reproducirMusica()">🎵 Reproducir música</button>
+
+    <div class="foto-corazon">
+        <img src="erika.jpg" alt="Foto de Erika">
+    </div>
+
+    <div class="card">
+        <h2>💌 Mi declaración para ti</h2>
+        <p>
+            Erika, quiero decirte algo desde lo más sincero de mi corazón.
+            No sé exactamente cuándo empezó todo, pero sí sé que cada día me gustas más.
+            <br><br>
+            Entre tantas personas, mi mirada siempre termina buscándote a ti.
+            Tu forma de ser, tu sonrisa, tu manera de hablar y esos pequeños detalles
+            que quizá ni imaginas hicieron que ocuparas un lugar muy especial en mi corazón.
+            <br><br>
+            Hoy quiero ser sincero contigo. No quiero seguir guardando lo que siento:
+            me gustas mucho. ❤️
+            <br><br>
+            Si algún día me permites formar parte de tu vida, prometo respetarte,
+            cuidarte, apoyarte y demostrarte con hechos todo lo bonito que siento por ti.
+            <br><br>
+            Porque no busco algo pasajero, busco una historia bonita que valga la pena recordar.
+            🌹❤️✨
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🌌 Mi universo favorito</h2>
+        <p>
+            Dicen que el universo está lleno de estrellas,
+            pero entre millones de ellas mi corazón eligió una sola.
+            <br><br>
+            Y esa eres tú, Erika.
+            Tú eres esa luz bonita que llegó a iluminar mis pensamientos
+            y a darle una razón más especial a mis días. ✨❤️🌹
+        </p>
+    </div>
+
+    <h2 class="pregunta">Erica, ¿te gustaría estar conmigo? ❤️</h2>
+
+    <div class="botones">
+        <button id="si" onclick="aceptar()">Sí ❤️</button>
+        <button id="no" onmouseover="escapar()" onclick="escapar()">No 💔</button>
+    </div>
+
+    <div class="mensaje" id="mensaje"></div>
+
+</div>
+
+<div id="pantallaSi">
+    <h2>❤️ TE AMO ❤️</h2>
+    <p>No te vas a arrepentir, Erika 🌹✨</p>
+</div>
+
+<script>
+function reproducirMusica(){
+    document.getElementById("musica").play();
+}
+
+function aceptar(){
+    reproducirMusica();
+
+    document.getElementById("pantallaSi").style.display="flex";
+    document.getElementById("mensaje").innerHTML =
+    "Erika, no te vas a arrepentir ❤️ Prometo cuidarte, valorarte y hacerte muy feliz 🌹✨";
+
+    for(let i=0;i<280;i++){
+        setTimeout(()=>{
+            explosionAmor();
+        },i*22);
+    }
+}
+
+function explosionAmor(){
+    const item=document.createElement("div");
+
+    const lista=[
+        "❤️","💖","💘","💕","🌹","🌷","✨","⭐",
+        "TE AMO ❤️","ERICA ❤️","MI AMOR 🌹","SÍÍÍ ❤️"
+    ];
+
+    item.innerHTML=lista[Math.floor(Math.random()*lista.length)];
+    item.style.position="fixed";
+    item.style.left="50%";
+    item.style.top="50%";
+    item.style.fontSize=(Math.random()*26+24)+"px";
+    item.style.color="white";
+    item.style.fontWeight="bold";
+    item.style.textShadow="0 0 15px #ff69b4";
+    item.style.pointerEvents="none";
+    item.style.zIndex="99999";
+
+    let x=(Math.random()-0.5)*1200;
+    let y=(Math.random()-0.5)*900;
+
+    item.animate([
+        {transform:"translate(-50%,-50%) scale(.5)",opacity:1},
+        {transform:`translate(${x}px,${y}px) scale(2)`,opacity:0}
+    ],{
+        duration:3000,
+        easing:"ease-out"
+    });
+
+    document.body.appendChild(item);
+
+    setTimeout(()=>{
+        item.remove();
+    },3000);
+}
+
+function escapar(){
+    const btn=document.getElementById("no");
+
+    const x=Math.random()*(window.innerWidth-150);
+    const y=Math.random()*(window.innerHeight-100);
+
+    btn.style.position="fixed";
+    btn.style.left=x+"px";
+    btn.style.top=y+"px";
+}
+
+function crearFlores(){
+    const item=document.createElement("div");
+
+    const figuras=["❤️","💖","💕","💘","🌹","🌷","✨","⭐"];
+
+    item.className="flotante";
+    item.innerHTML=figuras[Math.floor(Math.random()*figuras.length)];
+    item.style.left=Math.random()*100+"vw";
+    item.style.fontSize=(Math.random()*25+18)+"px";
+    item.style.animationDuration=(Math.random()*5+4)+"s";
+
+    document.body.appendChild(item);
+
+    setTimeout(()=>{
+        item.remove();
+    },9000);
+}
+
+setInterval(crearFlores,180);
+
+const canvas=document.getElementById("fondo");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let estrellas=[];
+
+for(let i=0;i<260;i++){
+    estrellas.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*2,
+        v:Math.random()*0.35
+    });
+}
+
+function universo(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    for(let e of estrellas){
+        ctx.beginPath();
+        ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
+        ctx.fillStyle="white";
+        ctx.fill();
+
+        e.y+=e.v;
+
+        if(e.y>canvas.height){
+            e.y=0;
+            e.x=Math.random()*canvas.width;
+        }
+    }
+
+    requestAnimationFrame(universo);
+}
+
+universo();
+
+window.addEventListener("resize",()=>{
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+});
+</script>
+
+</body>
+</html>
